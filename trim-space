@@ -1,0 +1,18 @@
+#!/bin/bash
+
+usage ()
+{
+  echo 'Usage : $0 -v <FILENAME>'
+  exit
+}
+
+if [ "$#" -ne 1 ]
+then
+  usage
+fi
+
+if [ "$1" != "" ]
+	then
+	rename 's/\s/_/g' "$1"
+fi
+ls
