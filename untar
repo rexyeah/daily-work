@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FOLDER='x86'
+PKG=`ls *gz`
+PKG_COUNT=`ls *gz | wc -l`
+
+if [ $PKG_COUNT -eq 1 ]; then
+    mkdir $FOLDER ; cp $PKG $FOLDER ; cd $FOLDER ; tar -xf $PKG --strip-components=1 ; ls $PKG | xargs -i rm -rf {}
+    echo '[SUCCESS] Untar the tarball to a x86 folder completed'
+    exit 0
+fi
+echo '[ERROR] More then one tarball here.'
+
